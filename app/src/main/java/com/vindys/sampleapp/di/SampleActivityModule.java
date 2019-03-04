@@ -11,8 +11,8 @@ import dagger.Provides;
 @Module
 public abstract class SampleActivityModule {
 
-    /*@Binds
-    abstract SampleActivityView provideSampleActivityView(SampleActivity sampleActivity);*/
+    @Binds
+    abstract SampleActivityView provideSampleActivityView(SampleActivity sampleActivity);
 
     @Provides
     static SampleActivityPresenter providesSampleActivityPresenter(SampleActivityView sampleView, SampleAppRepository sampleAppRepository){
