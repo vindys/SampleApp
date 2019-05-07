@@ -1,3 +1,25 @@
 <resources>
-    <string name="app_name">SampleApp</string>
+    <string name="app_name">Activity Log</string>
+    <string name="no_data_available">No results found.\nSelect a different time range and try again.</string>
+    <string name="year_string">Year</string>
+    <string name="month_string">Month</string>
+    <string-array name="years">
+        <item>2019</item>
+        <item>2018</item>
+        <item>2017</item>
+    </string-array>
+    <string-array name="months">
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>October</item>
+        <item>November</item>
+        <item>December</item>
+    </string-array>
 </resources>

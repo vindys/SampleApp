@@ -18,7 +18,7 @@ class AppModule {
     @Singleton @Provides
     SampleAppService provideFEProblemService() {
         return new Retrofit.Builder()
-                .baseUrl(SampleAppService.HTTPS_API_FALCONE_URL)
+                .baseUrl(SampleAppService.HTTPS_API_ABP_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
                 .create(SampleAppService.class);

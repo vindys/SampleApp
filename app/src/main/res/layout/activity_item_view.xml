@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="viewstate"
+            type="java.lang.Integer"/>
+
+        <variable
+            name="selectedYear"
+            type="java.lang.Integer"/>
+        <variable
+            name="selectedMonth"
+            type="java.lang.Integer"/>
+        <variable
+            name="textUtils"
+            type="android.text.TextUtils"/>
+        <variable name="position" type="java.lang.Integer" />
+        <variable name="activityLog" type="com.vindys.sampleapp.data.model.ActivityLog" />
+        <variable name="viewModel" type="com.vindys.sampleapp.viewmodel.SampleAppViewModel"/>
+    </data>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:paddingEnd="20dp"
+    android:layout_height="100dp">
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:id="@+id/activity_image"
+        android:src="@mipmap/ic_launcher"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_toEndOf="@id/activity_image"
+        android:text="@{activityLog.actionTypeLabel}"
+        android:id="@+id/type"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:singleLine="false"
+        android:scrollHorizontally="false"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:lines="2"
+        android:ellipsize="none"
+        android:layout_below="@id/type"
+        android:layout_toEndOf="@id/activity_image"
+        android:text="@{activityLog.description}"
+        android:id="@+id/description"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/description"
+        android:layout_toEndOf="@id/activity_image"
+        android:text="@{String.valueOf(activityLog.createdOn)}"
+        android:id="@+id/time"/>
+</RelativeLayout>
+</layout>
