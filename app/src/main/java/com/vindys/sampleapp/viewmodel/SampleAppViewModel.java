@@ -6,7 +6,6 @@ import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.Transformations;
 import android.support.annotation.NonNull;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.TextView;
@@ -20,10 +19,10 @@ import java.util.Objects;
 import javax.inject.Inject;
 
 public class SampleAppViewModel extends AndroidViewModel {
+    private final LiveData<ActivityMap> activityLogObservable;
     SampleAppRepository sampleAppRepository;
     private String yearSelected;
     private String monthSelected;
-    private final LiveData<ActivityMap> activityLogObservable;
     private MutableLiveData<YearMonthFilter> yearmonthValue=new MutableLiveData<>();
 
     private MutableLiveData<DataState> dataStateMutableLiveData=new MutableLiveData<>();
@@ -103,6 +102,13 @@ public class SampleAppViewModel extends AndroidViewModel {
     }
 
 
+    public enum DataState{
+        LOADING,
+        ERROR,
+        EMPTY,
+        LIVE
+    }
+
     static class YearMonthFilter {
         final String year;
         final String month;
@@ -111,12 +117,5 @@ public class SampleAppViewModel extends AndroidViewModel {
             this.year = year == null ? null : year.trim();
             this.month = month == null ? null : month.trim();
         }
-    }
-
-    public enum DataState{
-        LOADING,
-        ERROR,
-        EMPTY,
-        LIVE
     }
 }
