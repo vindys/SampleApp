@@ -64,8 +64,10 @@ public class SampleAppViewModel extends AndroidViewModel {
     }
 
     public void onYearSelected(AdapterView<?> parent, View view, int pos, long id){
-        yearSelected = ((TextView)view).getText().toString();
-        setYearMonthFilter(yearSelected,monthSelected);
+        if((TextView)view!=null) {
+            yearSelected = ((TextView) view).getText().toString();
+            setYearMonthFilter(yearSelected, monthSelected);
+        }
     }
 
     public void onMonthSelected(AdapterView<?> parent, View view, int pos, long id){
@@ -93,8 +95,11 @@ public class SampleAppViewModel extends AndroidViewModel {
     }
 
     public int currentMonthIndex(){
-        Calendar calendar = Calendar.getInstance();
-        return calendar.get(Calendar.MONTH);
+        if( monthSelected == null) {
+            Calendar calendar = Calendar.getInstance();
+            return calendar.get(Calendar.MONTH);
+        }else
+            return Integer.valueOf(monthSelected) - 1;
     }
 
 
